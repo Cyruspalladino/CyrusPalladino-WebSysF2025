@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Italianno');
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* Header styling */
+header {
+    width: 100%;
+    height: 200px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+header h1 {
+    z-index: 1;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Container for the boxes */
+.article-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between boxes */
+    padding: 40px 0;
+}
+
+/* Styling for each expandable box */
+.box {
+    width: 80%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Hover effect to darken the background */
+.box:hover {
+    background-color: #e0e0e0;
+}
+
+/* Styling for the title part of the box */
+.box-header {
+    padding: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow {
+    font-size: 1.5em;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Rotate arrow when active (both articles and sections) */
+.box.active > .box-header .arrow {
+    transform: rotate(180deg);
+}
+
+/* Styling for the collapsible content */
+.constitution-analysis {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    color: rgb(184, 1, 1);
+}
+
+.constitution-analysis p {
+    font-size: 1em !important;
+    font-family: inherit;
+}
+
+/* Class for constitution actual written text */
+.constitution-text {
+    font-size: 1em;
+    font-weight: normal;
+    color: #555;
+    margin-top: 5px;
+    font-family:'Calibri';
+}
+
+.constitution-text-subsection {
+    font-size: 1em;
+    color: black;
+    margin-top: 5px;
+    font-family:'Calibri';
+    font-weight: bold;
+}
+
+.header-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.constitution-text-header {
+    color: white;
+    font-size: 1.2em;
+    font-family: "pinyon Script";
+    width: 50%;
+}
+
+.p {
+    font-size: 1.2em;
+    padding: 0px;
+    margin: 0px;
+}
+
+.sections-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.article-box.active .sections-container {
+    max-height: 1000px;
+    padding: 10px 0;
+}
+
+.section-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.section-box.active .section-content {
+    max-height: 500px;
+    padding: 15px 20px;
+}
+
+.section-box.active .section-content,
+.article-box.active .sections-container {
+    max-height: none;
+    padding: 20px;
+}
+.box.active .constitution-analysis {
+    max-height: none;
+}
+
+
+.history-section h3 {
+    display: flex;
+    justify-content: center;
+}
+
+.history-text {
+    font-size: 1.2em;
+    text-align: center;
+    font-family: "Dubai Light";
+    padding: 30px;
+}
+
+.opinions {
+    font-size: 1em;
+    font-family: inherit;
+    color: black
+}
