@@ -29,7 +29,7 @@ $(document).ready(function() {
         }
         else if (weatherText.includes("Drizzle")) {
             observer.disconnect();
-            displayArt("https://collectionapi.metmuseum.org/public/collection/v1/objects/755791", "Searching for painting of drizzle...");
+            displayArt("https://collectionapi.metmuseum.org/public/collection/v1/objects/51087", "Searching for painting of drizzle...");
         }
         else if (weatherText.includes("Rain")) {
             observer.disconnect();
