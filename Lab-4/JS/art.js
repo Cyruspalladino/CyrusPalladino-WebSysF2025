@@ -9,64 +9,49 @@ window.art = {
     const artDepartment = document.getElementById("art-department");
     const artLink = document.getElementById("art-link");
 
-    const weatherToObjectID = {
-      Thunderstorm: 384535,
-      Drizzle: 437853,
-      Rain: 51087,
-      Snow: 437869,
-      Atmosphere: 458972,
-      Clear: 459095,
-      Clouds: 21693
+    // Map weather keywords to local images
+    const weatherImages = {
+      thunderstorm: "../Images/thunderstorm.jpg",
+      drizzle: "../Images/drizzle.jpg",
+      rain: "../Images/rain.jpg",
+      snow: "../Images/snow.jpg",
+      fog: "../Images/fog.jpg",
+      clouds: "../Images/cloud.jpg",
+      clear: "../Images/clear.jpg"
     };
 
     const keyword = (weatherKeywords[0] || "").toLowerCase();
-    let chosenWeather = "Clear";
+    let chosenWeather = "clear";
 
-    if (keyword.includes("thunder")) chosenWeather = "Thunderstorm";
-    else if (keyword.includes("drizzle")) chosenWeather = "Drizzle";
-    else if (keyword.includes("rain")) chosenWeather = "Rain";
-    else if (keyword.includes("snow")) chosenWeather = "Snow";
-    else if (keyword.includes("mist") || keyword.includes("fog")) chosenWeather = "Atmosphere";
-    else if (keyword.includes("cloud")) chosenWeather = "Clouds";
-    else if (keyword.includes("clear") || keyword.includes("sun")) chosenWeather = "Clear";
+    if (keyword.includes("thunder")) chosenWeather = "thunderstorm";
+    else if (keyword.includes("drizzle")) chosenWeather = "drizzle";
+    else if (keyword.includes("rain")) chosenWeather = "rain";
+    else if (keyword.includes("snow")) chosenWeather = "snow";
+    else if (keyword.includes("mist") || keyword.includes("fog")) chosenWeather = "fog";
+    else if (keyword.includes("cloud")) chosenWeather = "clouds";
+    else if (keyword.includes("clear") || keyword.includes("sun")) chosenWeather = "clear";
 
-    const objectID = weatherToObjectID[chosenWeather];
+    const localImage = weatherImages[chosenWeather] || weatherImages.clear;
+
     artLoading.classList.remove("hidden");
     artResult.classList.add("hidden");
-    artLoading.textContent = `Searching for a painting that captures ${chosenWeather.toLowerCase()}...`;
+    artLoading.textContent = `Showing painting for "${chosenWeather}" weather...`;
 
     try {
-      const response = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`);
-      if (!response.ok) throw new Error(`Met API returned ${response.status}`);
-      const data = await response.json();
-
-      if (!data.primaryImageSmall || data.primaryImageSmall.trim() === "") {
-        throw new Error("No image available for this artwork.");
-      }
-
-      artImg.src = data.primaryImageSmall;
-      artImg.alt = data.title;
-      artLink.href = data.objectURL;
-      artTitle.textContent = data.title;
-      artArtist.textContent = data.artistDisplayName || "Unknown artist";
-      artDate.textContent = data.objectDate || "";
-      artDepartment.textContent = data.department || "";
+      // Use local image
+      artImg.src = localImage;
+      artImg.alt = `Painting representing ${chosenWeather}`;
+      artTitle.textContent = `Painting: ${chosenWeather}`;
+      artArtist.textContent = "Local Artwork";
+      artDate.textContent = "";
+      artDepartment.textContent = "";
+      artLink.href = "#";
 
       artLoading.classList.add("hidden");
       artResult.classList.remove("hidden");
-    } catch (error) {
-      console.error("Error fetching artwork:", error);
-      artImg.src = "https://images.metmuseum.org/CRDImages/ep/original/DP-13061-001.jpg";
-      artImg.alt = "Fallback Landscape";
-      artTitle.textContent = "Landscape with Trees";
-      artArtist.textContent = "Jean-Baptiste-Camille Corot";
-      artDate.textContent = "19th century";
-      artDepartment.textContent = "European Paintings";
-      artLink.href = "https://www.metmuseum.org/art/collection/search/436029";
-
-      artLoading.textContent = "Showing fallback painting.";
-      artLoading.classList.add("hidden");
-      artResult.classList.remove("hidden");
+    } catch (err) {
+      console.error(err);
+      artLoading.textContent = "Failed to load local image.";
     }
   }
 };

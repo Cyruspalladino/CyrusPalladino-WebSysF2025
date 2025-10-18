@@ -60,3 +60,11 @@ now center all the boxes (as a group)
 now remove the title up top
 
 make any good styling/design tweaks
+
+have the title box bottom be at the same level of the image box bottom
+
+have the text in the title be middle vertically aligned
+
+instead of using the met api for images, ive made a new folder at the same level as the other folders titled "Images" containing an image for each weather type in keyword.includes("") so use those images instead
+
+fix to remove mention of the met
