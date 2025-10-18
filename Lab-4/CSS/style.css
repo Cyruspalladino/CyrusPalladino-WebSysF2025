@@ -1,0 +1,191 @@
+/* Base layout */
+body {
+  background-color: #2c2c2c;
+  color: #222;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+footer {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* Centered L-shaped row */
+.centered-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* Left column: push title to bottom */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* top weather, bottom title aligned */
+  gap: 20px;
+  height: 100%;
+  min-height: 400px; /* ensures enough height to align with art box */
+}
+
+/* Card styling */
+.card {
+  border-radius: 20px;
+  padding: 25px;
+  box-sizing: border-box;
+
+  /* Softer double border */
+  border: 2px solid #000;
+  outline: 2px solid #fff;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Pastel color themes */
+.pastel-blue {
+  background-color: #d0ebf7;
+}
+
+.pastel-pink {
+  background-color: #f7d0db;
+}
+
+.pastel-yellow {
+  background-color: #fff6c2;
+}
+
+/* Text & info styling */
+h2, h3 {
+  color: #222;
+  margin-top: 0;
+  font-weight: 600;
+}
+
+.loading {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  margin-top: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Weather box */
+#weather-info {
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+#w-icon img {
+  width: 80px;
+  height: 80px;
+}
+
+/* Buttons */
+button {
+  background-color: #6ba4c9;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background-color: #5a8cae;
+}
+
+/* Artwork section */
+#art-section {
+  flex: 0 0 38%; 
+  min-width: 300px;
+}
+
+#art-result {
+  text-align: center;
+}
+
+#art-img {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  object-fit: contain;
+  border-radius: 15px;
+  display: block;
+  margin: 0 auto 12px auto;
+}
+
+.art-info {
+  text-align: center;
+  color: #222;
+}
+
+a {
+  color: #0070c9;
+  text-decoration: none;
+  font-weight: 500;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Site title box */
+.site-title-box {
+  height: 94px; /* keep previous height */
+  padding: 22px;
+  border-radius: 15px;
+  border: 2px solid #000;
+  outline: 2px solid #fff;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  min-width: 280px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center; /* vertically center text */
+}
+
+.site-title-text {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .centered-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-column {
+    width: 100%;
+    max-width: 600px;
+    min-height: auto;
+  }
+  #art-section {
+    width: 100%;
+    max-width: 600px;
+  }
+}
