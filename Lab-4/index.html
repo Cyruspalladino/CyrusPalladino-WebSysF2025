@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troy Weather & Art</title>
+  <link rel="stylesheet" href="CSS/style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <main class="main-content">
+
+      <!-- Centered L-shaped Group -->
+      <div class="centered-row">
+        <!-- Left Column: Weather + Site Title -->
+        <div class="left-column">
+          <!-- Weather Card -->
+          <section id="weather-section" class="card pastel-blue">
+            <h2>Current Weather</h2>
+            <div id="weather-loading" class="loading">Loading weather…</div>
+
+            <div id="weather-info" class="hidden">
+              <div id="w-icon"></div>
+              <div id="w-desc" class="desc"></div>
+              <div id="w-temp" class="info"></div>
+              <div id="w-feels" class="info"></div>
+              <div id="w-wind" class="info"></div>
+            </div>
+
+            <button id="refresh-weather">Refresh Weather</button>
+          </section>
+
+          <!-- Site Title Box below Weather -->
+          <div class="site-title-box pastel-yellow">
+            <p class="site-title-text">Troy Weather & Art</p>
+          </div>
+        </div>
+
+        <!-- Right Column: Art Card -->
+        <section id="art-section" class="card pastel-pink">
+          <div id="art-loading" class="loading">Waiting for weather…</div>
+
+          <div id="art-result" class="hidden">
+            <img id="art-img" alt="Artwork" />
+            <div class="art-info">
+              <h3 id="art-title"></h3>
+              <p id="art-artist"></p>
+              <p id="art-date"></p>
+              <p id="art-department"></p>
+              <a id="art-link" href="#" target="_blank">View at The Met</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </main>
+
+    <footer>
+      <p>
+        Data from 
+        <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a> 
+        and 
+        <a href="https://metmuseum.org" target="_blank">The Met Museum API</a>.
+      </p>
+    </footer>
+  </div>
+
+  <script src="JS/art.js"></script>
+  <script src="JS/weather.js"></script>
+</body>
+</html>
