@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Search Page</title>
   <link rel="stylesheet" href="./Resources/CSS/frame.css">
-  <link rel="stylesheet" href="./Resources/CSS/homepage.css">
+  <link rel="stylesheet" href="./Resources/CSS/results.css">
 </head>
 <body>
   <div class="topnav">
@@ -17,27 +17,19 @@
     </div>
   </div>
 
-  <div class="title">
-    Measuring Public Attention<br>
-    with Trend Data
+  <div class="search-tags">
+    <span class="tag">Tag1</span>
+    <span class="tag">Tag2</span>
+    <span class="tag">Tag3</span>
+    <button id="add-search">+</button>
   </div>
 
-  <div class="search-term-container">
-    <div id="selected-terms" class="selected-terms">
-      <!-- tags added here via JS -->
-    </div>
-    <div class="input-row">
-      <input type="text" id="term-input" placeholder="Enter search term(s)"/>
-    </div>
-  </div>
+  <div class="separator"></div>
 
-  <div class="location-container">
-    <div id="selected-locations" class="selected-locations">
-      <!-- tags added here via JS -->
-    </div>
-    <div class="input-row">
-      <input type="text" id="location-input" placeholder="Enter location(s)"/>
-    </div>
+  <div class="location-tags">
+    <span class="tag">Location1</span>
+    <span class="tag">Location2</span>
+    <button id="add-location">+</button>
   </div>
 
   <div class="date-range-container">
@@ -49,12 +41,18 @@
     </div>
   </div>
 
-  <div id="tip">Add multiple tags using ","</div>
-
-  <div class="enter-search">
-    <button id="search-button">Visualize</button>
+  <div class="graphs">
+    <div class="graph-container">
+      <div class="graph-placeholder">Graph 1</div>
+      <button class="enlarge">Enlarge</button>
+    </div>
+    <div class="graph-container">
+      <div class="graph-placeholder">Graph 2</div>
+      <button class="enlarge">Enlarge</button>
+    </div>
   </div>
 
+  <div class="download">Download Data</div>
 
   <footer>Data provided by Google Search Trends</footer>
 

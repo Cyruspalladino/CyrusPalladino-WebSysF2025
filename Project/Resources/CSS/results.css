@@ -1,0 +1,124 @@
+.tag {
+  display: inline-block;
+  background-color: #f1ede7;
+  color: #333;
+  padding: 10px 15px;
+  margin: 8px;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+.separator {
+  width: 400px;
+  height: 2px;
+  background-color: #f1ede7;
+  opacity: 0.4;
+  margin-left: 10px;
+}
+
+.search-tags,
+.location-tags {
+  margin: 10px 30px;
+}
+
+.search-tags button,
+.location-tags button {
+  margin-left: 10px;
+  padding: 6px 10px;
+  font-size: 1em;
+}
+
+#add-search,
+#add-location {
+  background-color: #6bffc9;
+  border-radius: 8px;
+}
+
+.date-range-container {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+}
+
+.date-range-container .input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-range-container label {
+  color: #f1ede7;
+  font-size: 1em;
+}
+
+.date-range-container input {
+  width: 100px;
+  padding: 8px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.graphs {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.graph-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.graph-placeholder {
+  width: 450px;
+  height: 350px;
+  background-color: #333;
+  opacity: 0.3;
+  border: 4px dashed #f1ede7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f1ede7;
+  font-size: 4em;
+  border-radius: 8px;
+}
+
+.enlarge {
+  background-color: #f1ede7;
+  color: #333;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.enlarge:hover {
+  transform: scale(1);
+  box-shadow: 0 0 0 4px #333, 0 0 0 8px #f1ede7;
+}
+
+.download {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background-color: #6bffc9;
+  color: #333;
+  padding: 12px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.download:hover {
+  box-shadow: 0 0 0 4px #333, 0 0 0 8px #f1ede7;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transform: scale(1);
+}
