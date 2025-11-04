@@ -1,5 +1,29 @@
 <?php 
 
+/*
+ANSWERS (Also in README)
+
+1. Explain what each of your classes and methods does, the order in which methods are invoked, and the flow of execution after one of the operation buttons has been clicked.
+
+Add adds two numbers,
+Subtract subtracts two numbers,
+Multiply multiplies two numbers,
+Divide divides two numbers
+
+After the user presses an operation button, the operation class to be called is determined by comparing the POST array and the array of operation names corresponding to each class. After matching, it dynamically puts together the right Class.
+
+getEquation() reads out the operation to be displayed, using operate() to compute the actual value.
+
+2. Also explain how the application would differ if you were to use $\_GET, and why this may or may not be preferable.
+
+Using GET, the inputs of the form would be appended to the URL, which could be a problem if someone tried to multiply two enormous numbers, as it could reach the URL limit. This isn't a problem with POST.
+
+3. Finally, please explain whether or not there might be another (better +/-) way to determine which button has been pressed and take the appropriate action
+
+Rather than check each button using if/else, you can utilize the POST information to dynamically generate the class.
+
+*/
+
 abstract class Operation {
   protected $operand_1;
   protected $operand_2;
@@ -30,7 +54,35 @@ class Addition extends Operation {
 
 // Part 1 - Add subclasses for Subtraction, Multiplication and Division here
 
+class Subtraction extends Operation {
+  public function operate() {
+    return $this->operand_1 - $this->operand_2;
+  }
+  public function getEquation() {
+    return $this->operand_1 . ' - ' . $this->operand_2 . ' = ' . $this->operate();
+  }
+}
 
+class Multiplication extends Operation {
+  public function operate() {
+    return $this->operand_1 * $this->operand_2;
+  }
+  public function getEquation() {
+    return $this->operand_1 . ' * ' . $this->operand_2 . ' = ' . $this->operate();
+  }
+}
+
+class Division extends Operation {
+  public function operate() {
+    if ($this->operand_2 == 0) {
+      throw new Exception('Cannot divide by zero.');
+    }
+    return $this->operand_1 / $this->operand_2;
+  }
+  public function getEquation() {
+    return $this->operand_1 . ' / ' . $this->operand_2 . ' = ' . $this->operate();
+  }
+}
 
 // End Part 1
 
@@ -65,18 +117,23 @@ class Addition extends Operation {
 // Then tell me if there is a way to do this without the ifs
 
   try {
-    if (isset($_POST['add']) && $_POST['add'] == 'Add') {
-      $op = new Addition($o1, $o2);
+    $ops = [
+        'add'  => 'Addition',
+        'sub'  => 'Subtraction',
+        'mult' => 'Multiplication',
+        'div'  => 'Division'
+    ];
+    // make array of corresponding class names for each operation
+
+    $selected = array_keys(array_intersect_key($ops, $_POST))[0] ?? null;
+    // find which operation is in the post array 
+    if ($selected) {
+      $op = new $ops[$selected]($o1, $o2);
     }
-// Put the code for Part 2 here  \/
-
-
-
-
-
+  } 
+   
 // End of Part 2   /\
 
-  }
   catch (Exception $e) {
     $err[] = $e->getMessage();
   }
@@ -104,7 +161,7 @@ class Addition extends Operation {
     } 
   ?>
   </pre>
-  <form method="post" action="lab6start.php">
+  <form method="post" action="lab6.php">
     <input type="text" name="op1" id="name" value="" />
     <input type="text" name="op2" id="name" value="" />
     <br/>
