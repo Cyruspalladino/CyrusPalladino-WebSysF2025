@@ -101,3 +101,75 @@ JOIN
     grades g ON c.crn = g.crn
 GROUP BY 
     c.crn, c.prefix, c.number, c.title;
+
+
+JSON object:
+
+{
+  "Websys_course": {
+    "Lectures": {
+      "Lecture 1": {
+        "Title": "The Basics",
+        "Description": "Introduction to web systems and general overview."
+      },
+      "Lecture 2": {
+        "Title": "CSS Part 1",
+        "Description": "Basics of styling web pages with CSS."
+      },
+      "Lecture 3": {
+        "Title": "CSS Part 2",
+        "Description": "Advanced CSS techniques and layouts."
+      },
+      "Lecture 4": {
+        "Title": "JavaScript",
+        "Description": "Client-side scripting with JavaScript."
+      },
+      "Lecture 5": {
+        "Title": "AJAX and JSON",
+        "Description": "Asynchronous requests and working with JSON data."
+      },
+      "Lecture 6": {
+        "Title": "APIs",
+        "Description": "Using external APIs to fetch and manipulate data."
+      },
+      "Lecture 7": {
+        "Title": "Front End Optimization",
+        "Description": "Improving website performance and user experience."
+      },
+      "Lecture 8": {
+        "Title": "PHP",
+        "Description": "Server-side scripting basics with PHP."
+      },
+      "Lecture 9": {
+        "Title": "MySQL",
+        "Description": "Introduction to relational databases and MySQL."
+      },
+      "Lecture 10": {
+        "Title": "More PHP",
+        "Description": "Advanced PHP features and integration with MySQL."
+      },
+      "Lecture 11": {
+        "Title": "Authorization and Authentication",
+        "Description": "User login, sessions, and access control."
+      }
+    },
+    "Labs": {
+      "Lab 1": {
+        "Title": "Setup Development Environment",
+        "Description": "Install VS Code, Node.js, and browser dev tools."
+      },
+      "Lab 2": {
+        "Title": "Build First Web Page",
+        "Description": "Create a simple HTML page with CSS styling."
+      },
+      "Lab 3": {
+        "Title": "JavaScript Interaction",
+        "Description": "Add interactive elements with JavaScript."
+      },
+      "Lab 4": {
+        "Title": "PHP and MySQL Integration",
+        "Description": "Connect a PHP application to a MySQL database."
+      }
+    }
+  }
+}
