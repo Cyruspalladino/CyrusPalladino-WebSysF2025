@@ -49,13 +49,11 @@ a:hover {
     border-radius: 4px;
 }
 
-/* Inputs styling */
 input[type="text"], input[type="password"], textarea, select {
     width: 100%;
-    max-width: 400px; /* limit the width */
-    display: block;
-    margin: 5px auto 15px auto; /* center horizontally */
+    max-width: 400px;
     padding: 8px 10px;
+    margin: 5px 0 15px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
