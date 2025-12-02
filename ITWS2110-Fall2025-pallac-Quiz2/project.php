@@ -15,7 +15,7 @@ while ($row = $userResult->fetch_assoc()) {
     $users[] = $row;
 }
 
-// Initialize error and success messages
+// Initialize messages
 $error = '';
 $success = '';
 $newProjectId = null;
@@ -26,11 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $description = trim($_POST['description']);
     $members = $_POST['members'] ?? [];
 
-    // Validate project name and members
     if (count($members) < 3) {
         $error = "Please select at least 3 members.";
     } else {
-        // Check if project name exists
         $stmt = $conn->prepare("SELECT projectId FROM projects WHERE name = ?");
         $stmt->bind_param("s", $name);
         $stmt->execute();
@@ -39,13 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt->num_rows > 0) {
             $error = "A project with this name already exists.";
         } else {
-            // Insert project
             $stmtInsert = $conn->prepare("INSERT INTO projects (name, description) VALUES (?, ?)");
             $stmtInsert->bind_param("ss", $name, $description);
             $stmtInsert->execute();
             $newProjectId = $stmtInsert->insert_id;
 
-            // Insert project members
             $stmtMember = $conn->prepare("INSERT INTO projectMembership (projectId, memberId) VALUES (?, ?)");
             foreach ($members as $memberId) {
                 $stmtMember->bind_param("ii", $newProjectId, $memberId);
@@ -93,7 +89,6 @@ while ($project = $projectsResult->fetch_assoc()) {
     echo "<strong>" . htmlspecialchars($project['name']) . "</strong><br>";
     echo htmlspecialchars($project['description']) . "<br>";
 
-    // Fetch members
     $stmtMembers = $conn->prepare("
         SELECT u.firstName, u.lastName 
         FROM users u 
