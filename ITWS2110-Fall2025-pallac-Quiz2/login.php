@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->store_result();
 
     if ($stmt->num_rows == 1) {
-        $stmt->bind_result($hash, $salt);
+        $stmt->bind_result($hash, $salt, $firstName);
         $stmt->fetch();
 
         if (hash('sha256', $password . $salt) === $hash) {
