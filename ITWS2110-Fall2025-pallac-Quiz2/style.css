@@ -1,4 +1,4 @@
-/* style.css - full, updated for inline form labels and responsive layout */
+/* style.css - labels above inputs, stacked layout */
 
 body {
     font-family: tahoma, sans-serif;
@@ -15,17 +15,17 @@ body {
 
 .container {
     width: 90%;
-    max-width: 900px;
-    margin: 100px auto 60px auto; /* leave space for fixed navbar and footer */
+    max-width: 500px; /* smaller width for forms */
+    margin: 100px auto 60px auto; /* space for fixed navbar and footer */
     background-color: #444;
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
-    overflow-wrap: break-word;
 }
 
 h1, h2 {
     color: #f1ede7;
+    text-align: center;
 }
 
 ul {
@@ -39,35 +39,32 @@ ul li {
 
 a {
     text-decoration: none;
-    color: #f1ede7;
+    color: #6bffc9;
 }
 
 a:hover {
-    background-color: #6bffc9;
+    background-color: #f1ede7;
     color: #333;
     padding: 4px 8px;
     border-radius: 4px;
 }
 
-/* Form labels inline with inputs */
+/* Labels above inputs */
 form label {
-    display: inline-block;
-    width: 120px; /* adjust label width */
-    text-align: right;
-    margin-right: 10px;
-    vertical-align: middle;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 form input[type="text"],
 form input[type="password"],
 form textarea,
 form select {
-    width: 250px; /* input width */
-    padding: 5px 10px;
+    width: 100%;
+    padding: 8px 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    vertical-align: middle;
 }
 
 input[type="submit"] {
@@ -78,6 +75,8 @@ input[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    display: block;
+    margin: 0 auto;
 }
 
 input[type="submit"]:hover {
@@ -154,16 +153,5 @@ footer {
     .nav-links a {
         font-size: 1em;
         padding: 6px 10px;
-    }
-
-    form label, form input[type="text"], form input[type="password"] {
-        display: block;
-        width: 100%;
-        text-align: left;
-        margin: 5px 0;
-    }
-
-    form input[type="text"], form input[type="password"] {
-        max-width: 100%;
     }
 }
