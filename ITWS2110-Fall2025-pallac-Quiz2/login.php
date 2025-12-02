@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userId = $_POST['userId'];
     $password = $_POST['password'];
 
+
     $stmt = $conn->prepare("SELECT passwordHash, salt FROM users WHERE userId = ?");
     $stmt->bind_param("s", $userId);
     $stmt->execute();
@@ -19,6 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (hash('sha256', $salt . $password) === $hash) {
             $_SESSION['userId'] = $userId;
+            $_SESSION['firstName'] = $firstName;
+            $_SESSION['lastName'] = $lastName;
+
             header("Location: index.php");
             exit();
         } else {
