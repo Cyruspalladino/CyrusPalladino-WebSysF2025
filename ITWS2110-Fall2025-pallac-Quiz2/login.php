@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     $stmt = $conn->prepare("SELECT password_hash, salt, firstName FROM users WHERE userId = ?");
-    $stmt->bind_param("s", $userId);
+    $stmt->bind_param("i", $userId);
     $stmt->execute();
     $stmt->store_result();
 
