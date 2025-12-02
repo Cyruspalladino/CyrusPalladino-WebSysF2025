@@ -1,4 +1,4 @@
-/* style.css - improved for responsive layout */
+/* style.css - full, updated for inline form labels and responsive layout */
 
 body {
     font-family: tahoma, sans-serif;
@@ -14,14 +14,14 @@ body {
 }
 
 .container {
-    width: 90%; /* use percentage for responsiveness */
+    width: 90%;
     max-width: 900px;
-    margin: 100px auto 60px auto; /* space for fixed navbar and footer */
+    margin: 100px auto 60px auto; /* leave space for fixed navbar and footer */
     background-color: #444;
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
-    overflow-wrap: break-word; /* prevent long text from overflowing */
+    overflow-wrap: break-word;
 }
 
 h1, h2 {
@@ -49,12 +49,25 @@ a:hover {
     border-radius: 4px;
 }
 
-input[type="text"], input[type="password"], textarea, select {
-    width: 400px;
-    padding: 8px 10px;
-    margin: 5px 0 15px 0;
+/* Form labels inline with inputs */
+form label {
+    display: inline-block;
+    width: 120px; /* adjust label width */
+    text-align: right;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+form input[type="text"],
+form input[type="password"],
+form textarea,
+form select {
+    width: 250px; /* input width */
+    padding: 5px 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    vertical-align: middle;
 }
 
 input[type="submit"] {
@@ -77,7 +90,7 @@ input[type="submit"]:hover {
     margin-bottom: 10px;
     border-radius: 6px;
     background-color: #555;
-    word-wrap: break-word; /* prevents overflow */
+    word-wrap: break-word;
 }
 
 .project.highlight {
@@ -89,7 +102,7 @@ input[type="submit"]:hover {
 /* Centered top navbar */
 .topnav {
     display: flex;
-    justify-content: center; /* center the links */
+    justify-content: center;
     align-items: center;
     background-color: #f1ede7;
     padding: 10px 20px;
@@ -104,7 +117,7 @@ input[type="submit"]:hover {
 .nav-links {
     display: flex;
     gap: 30px;
-    flex-wrap: wrap; /* allow links to wrap on smaller screens */
+    flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -131,7 +144,7 @@ footer {
     width: 100%;
 }
 
-/* Make the layout responsive on smaller screens */
+/* Responsive adjustments */
 @media screen and (max-width: 600px) {
     .container {
         width: 95%;
@@ -141,5 +154,16 @@ footer {
     .nav-links a {
         font-size: 1em;
         padding: 6px 10px;
+    }
+
+    form label, form input[type="text"], form input[type="password"] {
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin: 5px 0;
+    }
+
+    form input[type="text"], form input[type="password"] {
+        max-width: 100%;
     }
 }
