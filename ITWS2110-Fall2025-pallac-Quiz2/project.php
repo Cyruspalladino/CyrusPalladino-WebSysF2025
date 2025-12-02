@@ -54,6 +54,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>Projects</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .members-checkboxes label {
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .members-checkboxes input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .project.highlight {
+            background-color: #d4ffd4;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .project {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
 <div class="topnav">
@@ -71,16 +90,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <form method="post" action="">
         <label>Project Name:</label><br>
         <input type="text" name="name" required><br>
+
         <label>Description:</label><br>
         <textarea name="description" required></textarea><br>
+
         <label>Members (select at least 3):</label><br>
-        <select name="members[]" multiple size="5" required>
+        <div class="members-checkboxes">
             <?php foreach ($users as $user): ?>
-                <option value="<?= $user['userId'] ?>">
+                <label>
+                    <input type="checkbox" name="members[]" value="<?= $user['userId'] ?>">
                     <?= htmlspecialchars($user['firstName'] . ' ' . $user['lastName']) ?>
-                </option>
+                </label>
             <?php endforeach; ?>
-        </select><br>
+        </div>
+
         <input type="submit" value="Add Project">
     </form>
 
