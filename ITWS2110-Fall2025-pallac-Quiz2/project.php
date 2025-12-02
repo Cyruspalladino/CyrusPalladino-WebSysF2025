@@ -57,7 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
 <div class="topnav">
-    <div class="logo">LOGO</div>
     <div class="nav-links">
         <a href="index.php">Home</a>
         <a href="logout.php">Logout</a>

@@ -20,15 +20,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     session_start();
     $_SESSION['userId'] = $userId;
+    $_SESSION['firstName'] = $firstName;
+
     header("Location: index.php");
     exit();
 }
 ?>
 
-<form method="post" action="register.php">
-    First Name: <input type="text" name="firstName" required><br>
-    Last Name: <input type="text" name="lastName" required><br>
-    Nick Name: <input type="text" name="nickName"><br>
-    Password: <input type="password" name="password" required><br>
-    <input type="submit" value="Register">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Register</h1>
+    <form method="post" action="register.php">
+        <label>First Name:</label>
+        <input type="text" name="firstName" required>
+
+        <label>Last Name:</label>
+        <input type="text" name="lastName" required>
+
+        <label>Nick Name:</label>
+        <input type="text" name="nickName">
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <input type="submit" value="Register">
+    </form>
+    <p>Already have an account? <a href="login.php">Login here</a>.</p>
+</div>
+
+<footer>WebSys Quiz2</footer>
+</body>
+</html>

@@ -14,7 +14,6 @@ if (!isset($_SESSION['userId'])) {
 </head>
 <body>
 <div class="topnav">
-    <div class="logo">LOGO</div>
     <div class="nav-links">
         <a href="project.php">Projects</a>
         <a href="logout.php">Logout</a>

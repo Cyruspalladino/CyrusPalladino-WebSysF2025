@@ -48,9 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="topnav">
-    <div class="logo">LOGO</div>
-</div>
 <div class="container">
     <h1>Login</h1>
     <?php if ($error) echo "<p style='color:red;'>$error</p>"; ?>
