@@ -21,7 +21,7 @@ if (!isset($_SESSION['userId'])) {
     </div>
 </div>
 <div class="container">
-    <h1>Welcome, User #<?= htmlspecialchars($_SESSION['userId']) ?></h1>
+    <h1>Welcome, User #<?= htmlspecialchars($_SESSION['firstName']) ?></h1>
     <p>Use the navigation above to manage projects.</p>
 </div>
 <footer>WebSys Quiz2</footer>

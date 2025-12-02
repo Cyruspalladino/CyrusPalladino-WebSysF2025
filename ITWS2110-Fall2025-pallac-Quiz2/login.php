@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (hash('sha256', $password . $salt) === $hash) {
             $_SESSION['userId'] = $userId;
+            $_SESSION['firstName'] = $firstName;
             header("Location: index.php");
             exit();
         } else {
