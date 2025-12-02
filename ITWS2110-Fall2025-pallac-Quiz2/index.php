@@ -1,15 +1,29 @@
 <?php
 session_start();
 if (!isset($_SESSION['userId'])) {
-    // User not logged in → redirect to login page
     header("Location: login.php");
     exit();
 }
-
-// Options for logged-in users
-echo "<h1>Welcome, User #" . $_SESSION['userId'] . "</h1>";
-echo "<ul>
-        <li><a href='project.php'>Add / View projects</a></li>
-        <li><a href='logout.php'>Logout</a></li>
-      </ul>";
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topnav">
+    <div class="logo">LOGO</div>
+    <div class="nav-links">
+        <a href="project.php">Projects</a>
+        <a href="logout.php">Logout</a>
+    </div>
+</div>
+<div class="container">
+    <h1>Welcome, <?= htmlspecialchars($_SESSION['firstName']) ?> <?= htmlspecialchars($_SESSION['lastName']) ?></h1>
+    <p>Use the navigation above to manage projects.</p>
+</div>
+<footer>WebSys Quiz2</footer>
+</body>
+</html>
