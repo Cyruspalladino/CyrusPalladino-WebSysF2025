@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db.php'; // make sure this file connects to MySQL
+require 'db.php';
 
 $error = '';
 
@@ -8,17 +8,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userId = $_POST['userId'];
     $password = $_POST['password'];
 
-
-    $stmt = $conn->prepare("SELECT passwordHash, salt FROM users WHERE userId = ?");
+    // Fetch hashed password and salt
+    $stmt = $conn->prepare("SELECT passwordHash, salt, firstName, lastName FROM users WHERE userId = ?");
     $stmt->bind_param("s", $userId);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows == 1) {
-        $stmt->bind_result($hash, $salt);
+        $stmt->bind_result($hash, $salt, $firstName, $lastName);
         $stmt->fetch();
 
         if (hash('sha256', $salt . $password) === $hash) {
+            // Store user info in session
             $_SESSION['userId'] = $userId;
             $_SESSION['firstName'] = $firstName;
             $_SESSION['lastName'] = $lastName;
