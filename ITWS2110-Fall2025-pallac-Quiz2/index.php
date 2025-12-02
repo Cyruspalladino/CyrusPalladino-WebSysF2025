@@ -1,6 +1,15 @@
 <?php
 session_start();
 if (!isset($_SESSION['userId'])) {
+    // User not logged in → redirect to login page
+    header("Location: login.php");
+    exit();
+}
+?>
+
+<?php
+session_start();
+if (!isset($_SESSION['userId'])) {
     header("Location: login.php");
     exit();
 }
@@ -11,3 +20,4 @@ echo "<ul>
         <li><a href='addProject.php'>Add a project</a></li>
         <li><a href='viewProjects.php'>View existing projects</a></li>
       </ul>";
+?>
