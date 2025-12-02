@@ -12,9 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userId = $_POST['userId'];
     $password = $_POST['password'];
 
-    // Query password_hash, salt, firstName
     $stmt = $conn->prepare("SELECT password_hash, salt, firstName FROM users WHERE userId = ?");
-    $stmt->bind_param("i", $userId); // userId is INT
+    $stmt->bind_param("i", $userId);
     $stmt->execute();
     $stmt->store_result();
 
@@ -22,17 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_result($hash, $salt, $firstName);
         $stmt->fetch();
 
-        // Verify password
         if (hash('sha256', $password . $salt) === $hash) {
             $_SESSION['userId'] = $userId;
-            $_SESSION['firstName'] = $firstName; // store first name in session
+            $_SESSION['firstName'] = $firstName;
             header("Location: index.php");
             exit();
         } else {
             $error = "Incorrect password.";
         }
     } else {
-        // Redirect to registration if user doesn't exist
         header("Location: register.php");
         exit();
     }
@@ -52,12 +49,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1>Login</h1>
     <?php if ($error) echo "<p style='color:red;'>$error</p>"; ?>
     <form method="post" action="">
-        <label>User ID:</label><br>
-        <input type="number" name="userId" required><br>
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br>
+        <label for="userId">User ID:</label>
+        <input type="number" id="userId" name="userId" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
         <input type="submit" value="Login">
     </form>
+    <p>Don't have an account? <a href="register.php">Register here</a>.</p>
 </div>
 <footer>WebSys Quiz2</footer>
 </body>
