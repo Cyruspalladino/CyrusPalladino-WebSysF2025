@@ -20,8 +20,9 @@ if (!isset($_SESSION['userId'])) {
     </div>
 </div>
 <div class="container">
-    <h1>Welcome, <?= htmlspecialchars($_SESSION['firstName']) ?> (User ID #<?=htmlspecialchars($_SESSION['userId'])?>)</h1>
-    <p>Use the navigation above to manage projects.</p>
+    <h1>Welcome, <?= htmlspecialchars($_SESSION['firstName']) ?></h1>
+    <p class="center-text">(User ID #<?=htmlspecialchars($_SESSION['userId'])?>)</p>
+    <p class="center-text">Use the navigation above to manage projects.</p>
 </div>
 <footer>WebSys Quiz2</footer>
 </body>

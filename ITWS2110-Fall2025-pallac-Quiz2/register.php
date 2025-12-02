@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <input type="submit" value="Register">
     </form>
-    <p>Already have an account? <a href="login.php">Login here</a>.</p>
+    <p class="center-text">Already have an account? <a href="login.php">Login here</a>.</p>
 </div>
 
 <footer>WebSys Quiz2</footer>

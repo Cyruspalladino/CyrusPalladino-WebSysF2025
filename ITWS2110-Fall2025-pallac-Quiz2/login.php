@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <input type="submit" value="Login">
     </form>
-    <p>Don't have an account? <a href="register.php">Register here</a>.</p>
+    <p class="center-text">Don't have an account? <a href="register.php">Register here</a>.</p>
 </div>
 <footer>WebSys Quiz2</footer>
 </body>
