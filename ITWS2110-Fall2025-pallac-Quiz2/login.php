@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_result($hash, $salt);
         $stmt->fetch();
 
-        if (hash('sha256', $salt . $password) === $hash) {
+        if (hash('sha256', $password . $salt) === $hash) {
             $_SESSION['userId'] = $userId;
             header("Location: index.php");
             exit();
