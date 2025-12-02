@@ -70,28 +70,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <footer>WebSys Quiz2</footer>
 </body>
 </html>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="topnav">
-    <div class="logo">LOGO</div>
-</div>
-<div class="container">
-    <h1>Login</h1>
-    <?php if ($error) echo "<p style='color:red;'>$error</p>"; ?>
-    <form method="post" action="">
-        <label>User ID:</label><br>
-        <input type="text" name="userId" required><br>
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br>
-        <input type="submit" value="Login">
-    </form>
-</div>
-<footer>WebSys Quiz2</footer>
-</body>
-</html>
